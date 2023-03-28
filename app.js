@@ -687,6 +687,9 @@ app.get("/logout", (req, res) => {
   res.clearCookie("token");
   res.redirect("/");
 });
+app.get("/result", (req, res) => {
+  return res.render("result");
+});
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
