@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>MySQL Data</title>
+  </head>
+  <body>
+    <h1>MySQL Data</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each numbers}}
+          <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.value}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>

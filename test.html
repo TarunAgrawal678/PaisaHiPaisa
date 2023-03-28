@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+</head>
+<body>
+  <h1 id="countdown"></h1>
+
+  <script>
+    function startCountdown() {
+      let countdown = 9 * 60; // in seconds
+
+      setInterval(function() {
+        if (countdown === 0) {
+          countdown = 9 * 60; // reset the countdown to 9 minutes
+        }
+
+        let minutes = Math.floor(countdown / 60);
+        let seconds = countdown % 60;
+
+        document.getElementById("countdown").innerHTML = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        countdown--;
+      }, 1000); // 1 second in milliseconds
+    }
+
+    startCountdown(); // start the countdown
+  </script>
+</body>
+</html>

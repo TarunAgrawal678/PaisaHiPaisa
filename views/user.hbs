@@ -1,0 +1,82 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/user.css" />
+    <style>
+      #confirm { display: none; background-color: #F3F5F6; color: #000000;
+      border: 1px solid #aaa; position: fixed; width: 300px; height: 100px;
+      left: 40%; top: 40%; box-sizing: border-box; text-align: center; }
+      #confirm button { background-color: #FFFFFF; display: inline-block;
+      border-radius: 12px; border: 4px solid #aaa; padding: 5px; text-align:
+      center; width: 60px; cursor: pointer; } #confirm .message { text-align:
+      left; }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Navigation  -->
+      <nav class="nav">
+        <div class="navicon">
+          <div></div>
+        </div>
+
+        <a class="nav-items" href="/appjs/views/Profile.html">Profile</a>
+        <a class="nav-items" href="/appjs/views/support.html">Contact</a>
+        <a class="nav-items" href="/logout">Logout</a>
+
+      </nav>
+      <!--Timer-->
+      <div class="container">
+        <h1 id="headline">Time left to bet:</h1>
+        <div id="countdown">
+          <ul>
+            <li><span id="minutes"></span>Minutes</li>
+            <li><span id="seconds"></span>Seconds</li>
+          </ul>
+        </div>
+      </div>
+      <!--layout correct-->
+      <div class="layout1"></div>
+      <!--BET form-->
+      <div class="numbers">
+        {{#each numbers}}
+          <div class="num"><div class="number">{{this.value}}</div>
+            <form
+              class="form"
+              action="/user/bet"
+              method="post"
+              onsubmit="return confirmBet()"
+            >
+              <input
+                class="input"
+                type="hidden"
+                value="{{this.value}}"
+                name="value"
+              />
+              <input class="input" type="hidden" value="bet" name="status" />
+              <input
+                class="input"
+                type="number"
+                placeholder="Enter Amount"
+                name="bet"
+              />
+
+              <button href="#" class="button">
+
+                Bet</button>
+
+            </form>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <script src="/js/timer.js">
+
+    </script>
+
+  </body>
+</html>
